@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Name — Computational Linguistics, ETH Zürich</title>
+<meta name="description" content="PhD student working on X. Publications, experience, and contact.">
+
+<!-- Social preview. Replace URL and image once deployed. -->
+<meta property="og:title" content="Your Name">
+<meta property="og:description" content="PhD student working on X.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="topbar__name" href="index.html">Your Name</a>
+  <nav class="topbar__nav">
+    <a href="index.html" aria-current="page">About</a>
+    <a href="publications.html">Publications</a>
+    <a href="cv.pdf">CV</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ─── Hero ─────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero__margin">
+      <span class="note">Zürich</span>
+      <span class="note">CET</span>
+    </div>
+    <div class="hero__body">
+      <h1 class="hero__title">Your Name</h1>
+      <p class="hero__role">PhD student, Department of Something · ETH&nbsp;Zürich</p>
+      <p class="hero__bio">
+        I work on <span class="mark">the thing you actually work on</span>, with a focus on
+        the specific question that makes it interesting. Before this I did X at Y.
+        Write two or three sentences here that a smart person outside your subfield
+        could follow — this is the only paragraph most visitors will read.
+      </p>
+      <ul class="links">
+        <li><a href="mailto:you@example.com">you@example.com</a></li>
+        <li><a href="https://scholar.google.com/">Google&nbsp;Scholar</a></li>
+        <li><a href="https://orcid.org/">ORCID</a></li>
+        <li><a href="https://github.com/">GitHub</a></li>
+        <li><a href="cv.pdf">CV&nbsp;(PDF)</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ─── Experience ───────────────────────────────────────── -->
+  <section class="section">
+    <h2 class="section__title">Experience</h2>
+
+    <article class="row">
+      <div class="row__margin"><span class="note">2023 —</span></div>
+      <div class="row__body">
+        <h3 class="row__title">PhD Student, Institution</h3>
+        <p class="row__meta">Advised by Prof. Name · Lab or group name</p>
+        <p class="row__text">One sentence on what you're doing there. Keep it concrete.</p>
+      </div>
+    </article>
+
+    <article class="row">
+      <div class="row__margin"><span class="note">2022</span></div>
+      <div class="row__body">
+        <h3 class="row__title">Research Intern, Organisation</h3>
+        <p class="row__meta">Team · City</p>
+        <p class="row__text">What you built or found, in one line.</p>
+      </div>
+    </article>
+
+    <article class="row">
+      <div class="row__margin"><span class="note">2019 — 22</span></div>
+      <div class="row__body">
+        <h3 class="row__title">MSc in Field, University</h3>
+        <p class="row__meta">Thesis: “Title of your thesis”</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- ─── Selected work ────────────────────────────────────── -->
+  <section class="section">
+    <h2 class="section__title">Selected work</h2>
+    <div id="selected-pubs" class="pubs">
+      <p class="loading">Loading publications…</p>
+    </div>
+    <p class="section__more">
+      <a href="publications.html">All publications →</a>
+    </p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span class="note">Last updated August 2026</span>
+  <span class="note">Built by hand</span>
+</footer>
+
+<script src="pubs.js"></script>
+<script>renderSelected("selected-pubs");</script>
+</body>
+</html>

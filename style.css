@@ -1,0 +1,296 @@
+/* ============================================================
+   Tokens
+   ============================================================ */
+:root {
+  --paper:     #ECEDE9;   /* cool newsprint, not cream           */
+  --surface:   #F6F7F4;
+  --ink:       #1A1D1B;
+  --ink-soft:  #5F655E;
+  --rule:      #D2D4CE;
+  --mark:      #DCE64B;   /* highlighter — the only accent       */
+
+  --display: "Newsreader", Georgia, serif;
+  --body:    "Inter", system-ui, -apple-system, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+
+  --margin-col: 7.5rem;   /* width of the annotation column      */
+  --gap:        2rem;
+  --measure:    34rem;    /* max line length for reading         */
+  --page:       58rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:    #17191A;
+    --surface:  #1E2122;
+    --ink:      #E8E9E4;
+    --ink-soft: #9AA096;
+    --rule:     #33383A;
+    --mark:     #9AA82B;
+  }
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1rem;
+  line-height: 1.65;
+  font-feature-settings: "cv05", "ss01";
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 0 1.5rem 5rem;
+}
+
+h1, h2, h3 { font-family: var(--display); font-weight: 500; line-height: 1.15; margin: 0; }
+
+p { margin: 0 0 0.9rem; max-width: var(--measure); }
+
+/* Links: quiet by default, highlighter on hover ------------- */
+a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  transition: background-size 140ms ease;
+  background-image: linear-gradient(var(--mark), var(--mark));
+  background-repeat: no-repeat;
+  background-position: 0 88%;
+  background-size: 0% 0.35em;
+  padding-bottom: 0.05em;
+}
+a:hover, a:focus-visible { background-size: 100% 0.35em; border-bottom-color: var(--ink); }
+
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
+
+/* The highlighter swipe, used sparingly --------------------- */
+.mark {
+  background-image: linear-gradient(var(--mark), var(--mark));
+  background-repeat: no-repeat;
+  background-position: 0 82%;
+  background-size: 100% 0.42em;
+}
+
+/* Marginalia voice ------------------------------------------ */
+.note {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============================================================
+   Top bar
+   ============================================================ */
+.topbar {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 1.75rem 1.5rem 3.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.topbar__name {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: none;
+}
+.topbar__nav { display: flex; gap: 1.4rem; }
+.topbar__nav a {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  border-bottom: none;
+  color: var(--ink-soft);
+}
+.topbar__nav a[aria-current="page"] { color: var(--ink); background-size: 100% 0.35em; }
+
+/* ============================================================
+   Two-column rhythm: annotation margin + content
+   ============================================================ */
+.hero, .row, .pagehead, .pub {
+  display: grid;
+  grid-template-columns: var(--margin-col) minmax(0, 1fr);
+  gap: var(--gap);
+}
+
+.hero { padding-bottom: 3.5rem; }
+.hero__margin { padding-top: 0.7rem; }
+
+.hero__title {
+  font-size: clamp(2.6rem, 7vw, 4.1rem);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.4rem;
+}
+.hero__role {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  margin-bottom: 1.4rem;
+}
+.hero__bio { font-size: 1.05rem; }
+
+.links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  padding: 0;
+  margin: 1.6rem 0 0;
+}
+.links a { font-family: var(--mono); font-size: 0.8rem; }
+
+/* ============================================================
+   Sections
+   ============================================================ */
+.section { border-top: 1px solid var(--rule); padding: 2.5rem 0 1rem; }
+.section--flush { border-top: none; padding-top: 0; }
+
+.section__title {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 2rem;
+}
+.section__more { margin-top: 2rem; }
+.section__more a { font-family: var(--mono); font-size: 0.8rem; }
+
+.row { padding-bottom: 2.2rem; }
+.row__margin { padding-top: 0.35rem; }
+.row__title { font-size: 1.25rem; margin-bottom: 0.2rem; }
+.row__meta {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.5rem;
+}
+.row__text { font-size: 0.95rem; }
+.row__text:last-child, .row__meta:last-child { margin-bottom: 0; }
+
+/* ============================================================
+   Publications page head + filters
+   ============================================================ */
+.pagehead { padding-bottom: 3rem; }
+.pagehead__margin { padding-top: 0.9rem; }
+.pagehead__title { font-size: clamp(2.1rem, 5vw, 3rem); margin-bottom: 0.6rem; }
+.pagehead__note { font-size: 0.95rem; color: var(--ink-soft); }
+
+.filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+.filters button {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 0.3rem 0.85rem;
+  cursor: pointer;
+  transition: color 120ms ease, border-color 120ms ease;
+}
+.filters button:hover { color: var(--ink); border-color: var(--ink-soft); }
+.filters button[aria-pressed="true"] {
+  color: var(--ink);
+  border-color: var(--ink);
+  background: var(--mark);
+}
+
+/* ============================================================
+   Publication entries
+   ============================================================ */
+.pubs { margin: 0; }
+
+.yeargroup { border-top: 1px solid var(--rule); padding-top: 1.6rem; margin-bottom: 1rem; }
+.yeargroup:first-child { border-top: none; padding-top: 0; }
+
+.pub { padding-bottom: 2.1rem; }
+.pub__margin { padding-top: 0.4rem; }
+.pub__title { font-size: 1.15rem; margin-bottom: 0.3rem; }
+.pub__authors { font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 0.25rem; }
+.pub__authors strong { color: var(--ink); font-weight: 500; }
+.pub__venue {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 0.95rem;
+  margin-bottom: 0.55rem;
+}
+.pub__summary { font-size: 0.95rem; margin-bottom: 0.6rem; }
+.pub__links { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+.pub__links a { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.03em; }
+
+.tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.05rem 0.4rem;
+  margin-left: 0.5rem;
+  vertical-align: 0.15em;
+}
+
+.loading { font-family: var(--mono); font-size: 0.8rem; color: var(--ink-soft); }
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.footer {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.footer a { border-bottom: none; }
+
+/* ============================================================
+   Small screens: margin column moves above content
+   ============================================================ */
+@media (max-width: 640px) {
+  .hero, .row, .pagehead, .pub { grid-template-columns: 1fr; gap: 0.4rem; }
+  .hero__margin, .row__margin, .pagehead__margin, .pub__margin { padding-top: 0; }
+  .hero__margin { display: flex; gap: 1rem; }
+  .footer { flex-direction: column; gap: 0.3rem; }
+}
+
+/* ============================================================
+   Motion
+   ============================================================ */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__title, .hero__role, .hero__bio, .links {
+    animation: rise 620ms cubic-bezier(.2,.7,.3,1) backwards;
+  }
+  .hero__role { animation-delay: 70ms; }
+  .hero__bio  { animation-delay: 140ms; }
+  .links      { animation-delay: 210ms; }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(0.6rem); }
+    to   { opacity: 1; transform: none; }
+  }
+}

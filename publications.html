@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Publications — Your Name</title>
+<meta name="description" content="Complete list of publications with summaries.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="topbar__name" href="index.html">Your Name</a>
+  <nav class="topbar__nav">
+    <a href="index.html">About</a>
+    <a href="publications.html" aria-current="page">Publications</a>
+    <a href="cv.pdf">CV</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="pagehead">
+    <div class="pagehead__margin"><span class="note" id="pub-count"></span></div>
+    <div class="pagehead__body">
+      <h1 class="pagehead__title">Publications</h1>
+      <p class="pagehead__note">
+        Reverse chronological. Author order as published; my name is set in bold.
+        Preprints are marked as such.
+      </p>
+      <div class="filters" id="filters" role="group" aria-label="Filter by type"></div>
+    </div>
+  </section>
+
+  <section class="section section--flush">
+    <div id="all-pubs" class="pubs">
+      <p class="loading">Loading publications…</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span class="note">Last updated August 2026</span>
+  <span class="note"><a href="index.html">← Back</a></span>
+</footer>
+
+<script src="pubs.js"></script>
+<script>renderAll("all-pubs", "filters", "pub-count");</script>
+</body>
+</html>
