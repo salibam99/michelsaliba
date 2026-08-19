@@ -1,109 +1,2284 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Your Name — Computational Linguistics, ETH Zürich</title>
-<meta name="description" content="PhD student working on X. Publications, experience, and contact.">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Michel Saliba | Nuclear Engineer & Researcher</title>
+        <style>
+            *,
+            *::before,
+            *::after {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            :root {
+                --bg: #0a0a0f;
+                --bg2: #12121a;
+                --glass: rgba(255, 255, 255, 0.04);
+                --glass-border: rgba(255, 255, 255, 0.08);
+                --glass-hover: rgba(255, 255, 255, 0.07);
+                --text: #e0e0e8;
+                --text-dim: #8888a0;
+                --accent: #6c63ff;
+                --accent2: #00d4aa;
+                --accent3: #ff6b6b;
+                --radius: 16px;
+                --radius-sm: 10px;
+            }
+            html {
+                scroll-behavior: smooth;
+                font-size: 16px;
+            }
+            body {
+                font-family:
+                    "Segoe UI",
+                    system-ui,
+                    -apple-system,
+                    sans-serif;
+                background: var(--bg);
+                color: var(--text);
+                line-height: 1.6;
+                overflow-x: hidden;
+            }
+            body::before {
+                content: "";
+                position: fixed;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background:
+                    radial-gradient(
+                        ellipse at 30% 20%,
+                        rgba(108, 99, 255, 0.08) 0%,
+                        transparent 50%
+                    ),
+                    radial-gradient(
+                        ellipse at 70% 80%,
+                        rgba(0, 212, 170, 0.05) 0%,
+                        transparent 50%
+                    );
+                z-index: -1;
+                animation: bgShift 20s ease-in-out infinite alternate;
+            }
+            @keyframes bgShift {
+                0% {
+                    transform: translate(0, 0);
+                }
+                100% {
+                    transform: translate(-5%, 3%);
+                }
+            }
 
-<!-- Social preview. Replace URL and image once deployed. -->
-<meta property="og:title" content="Your Name">
-<meta property="og:description" content="PhD student working on X.">
-<meta property="og:type" content="website">
+            /* Scrollbar */
+            ::-webkit-scrollbar {
+                width: 6px;
+            }
+            ::-webkit-scrollbar-track {
+                background: var(--bg);
+            }
+            ::-webkit-scrollbar-thumb {
+                background: var(--accent);
+                border-radius: 3px;
+            }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+            /* Navigation */
+            nav {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 100;
+                padding: 1rem 2rem;
+                background: rgba(10, 10, 15, 0.8);
+                backdrop-filter: blur(20px);
+                border-bottom: 1px solid var(--glass-border);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                transition: all 0.3s;
+            }
+            nav.scrolled {
+                padding: 0.6rem 2rem;
+                background: rgba(10, 10, 15, 0.95);
+            }
+            .nav-logo {
+                font-size: 1.3rem;
+                font-weight: 700;
+                background: linear-gradient(
+                    135deg,
+                    var(--accent),
+                    var(--accent2)
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                text-decoration: none;
+            }
+            .nav-links {
+                display: flex;
+                gap: 2rem;
+                list-style: none;
+            }
+            .nav-links a {
+                color: var(--text-dim);
+                text-decoration: none;
+                font-size: 0.9rem;
+                transition: color 0.3s;
+                position: relative;
+            }
+            .nav-links a:hover {
+                color: var(--text);
+            }
+            .nav-links a::after {
+                content: "";
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: var(--accent);
+                transition: width 0.3s;
+            }
+            .nav-links a:hover::after {
+                width: 100%;
+            }
+            .nav-toggle {
+                display: none;
+                flex-direction: column;
+                gap: 5px;
+                cursor: pointer;
+                background: none;
+                border: none;
+                padding: 4px;
+            }
+            .nav-toggle span {
+                width: 24px;
+                height: 2px;
+                background: var(--text);
+                transition: all 0.3s;
+                display: block;
+            }
 
-<header class="topbar">
-  <a class="topbar__name" href="index.html">Your Name</a>
-  <nav class="topbar__nav">
-    <a href="index.html" aria-current="page">About</a>
-    <a href="publications.html">Publications</a>
-    <a href="cv.pdf">CV</a>
-  </nav>
-</header>
+            /* Sections */
+            section {
+                padding: 6rem 2rem;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            .section-title {
+                font-size: 2.2rem;
+                font-weight: 700;
+                margin-bottom: 1rem;
+                background: linear-gradient(
+                    135deg,
+                    var(--accent),
+                    var(--accent2)
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .section-subtitle {
+                color: var(--text-dim);
+                margin-bottom: 3rem;
+                font-size: 1.05rem;
+                max-width: 600px;
+            }
 
-<main>
+            /* Glass Card */
+            .glass-card {
+                background: var(--glass);
+                border: 1px solid var(--glass-border);
+                border-radius: var(--radius);
+                padding: 2rem;
+                backdrop-filter: blur(10px);
+                transition: all 0.3s;
+            }
+            .glass-card:hover {
+                background: var(--glass-hover);
+                border-color: rgba(255, 255, 255, 0.12);
+                transform: translateY(-2px);
+                box-shadow: 0 8px 32px rgba(108, 99, 255, 0.08);
+            }
 
-  <!-- ─── Hero ─────────────────────────────────────────────── -->
-  <section class="hero">
-    <div class="hero__margin">
-      <span class="note">Zürich</span>
-      <span class="note">CET</span>
-    </div>
-    <div class="hero__body">
-      <h1 class="hero__title">Your Name</h1>
-      <p class="hero__role">PhD student, Department of Something · ETH&nbsp;Zürich</p>
-      <p class="hero__bio">
-        I work on <span class="mark">the thing you actually work on</span>, with a focus on
-        the specific question that makes it interesting. Before this I did X at Y.
-        Write two or three sentences here that a smart person outside your subfield
-        could follow — this is the only paragraph most visitors will read.
-      </p>
-      <ul class="links">
-        <li><a href="mailto:you@example.com">you@example.com</a></li>
-        <li><a href="https://scholar.google.com/">Google&nbsp;Scholar</a></li>
-        <li><a href="https://orcid.org/">ORCID</a></li>
-        <li><a href="https://github.com/">GitHub</a></li>
-        <li><a href="cv.pdf">CV&nbsp;(PDF)</a></li>
-      </ul>
-    </div>
-  </section>
+            /* Hero */
+            #hero {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding-top: 5rem;
+                position: relative;
+            }
+            .hero-content {
+                max-width: 800px;
+            }
+            .hero-avatar {
+                width: 140px;
+                height: 140px;
+                border-radius: 50%;
+                background: linear-gradient(
+                    135deg,
+                    var(--accent),
+                    var(--accent2)
+                );
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 3.5rem;
+                font-weight: 700;
+                color: var(--bg);
+                margin: 0 auto 2rem;
+                box-shadow: 0 0 40px rgba(108, 99, 255, 0.3);
+            }
+            .hero-name {
+                font-size: 3.5rem;
+                font-weight: 800;
+                background: linear-gradient(135deg, #fff, var(--text));
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                margin-bottom: 0.5rem;
+            }
+            .hero-title {
+                font-size: 1.3rem;
+                color: var(--accent2);
+                margin-bottom: 1rem;
+                font-weight: 500;
+            }
+            .hero-desc {
+                color: var(--text-dim);
+                font-size: 1.05rem;
+                max-width: 600px;
+                margin: 0 auto 2rem;
+            }
+            .hero-links {
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .hero-links a {
+                padding: 0.7rem 1.5rem;
+                border-radius: 50px;
+                text-decoration: none;
+                font-size: 0.9rem;
+                font-weight: 500;
+                transition: all 0.3s;
+            }
+            .btn-primary {
+                background: linear-gradient(135deg, var(--accent), #8b7aff);
+                color: #fff;
+                border: none;
+                cursor: pointer;
+            }
+            .btn-primary:hover {
+                box-shadow: 0 4px 20px rgba(108, 99, 255, 0.4);
+                transform: translateY(-2px);
+            }
+            .btn-outline {
+                background: transparent;
+                color: var(--text);
+                border: 1px solid var(--glass-border);
+            }
+            .btn-outline:hover {
+                border-color: var(--accent);
+                color: var(--accent);
+            }
 
-  <!-- ─── Experience ───────────────────────────────────────── -->
-  <section class="section">
-    <h2 class="section__title">Experience</h2>
+            /* Stats */
+            .stats-row {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1.5rem;
+                margin-top: 3rem;
+            }
+            .stat-card {
+                text-align: center;
+                padding: 1.5rem;
+            }
+            .stat-number {
+                font-size: 2.5rem;
+                font-weight: 800;
+                background: linear-gradient(
+                    135deg,
+                    var(--accent),
+                    var(--accent2)
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .stat-label {
+                color: var(--text-dim);
+                font-size: 0.85rem;
+                margin-top: 0.3rem;
+            }
 
-    <article class="row">
-      <div class="row__margin"><span class="note">2023 —</span></div>
-      <div class="row__body">
-        <h3 class="row__title">PhD Student, Institution</h3>
-        <p class="row__meta">Advised by Prof. Name · Lab or group name</p>
-        <p class="row__text">One sentence on what you're doing there. Keep it concrete.</p>
-      </div>
-    </article>
+            /* Projects Grid */
+            .projects-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+                gap: 1.5rem;
+            }
+            .project-card {
+                padding: 1.8rem;
+                position: relative;
+                overflow: hidden;
+            }
+            .project-card::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background: linear-gradient(
+                    90deg,
+                    var(--accent),
+                    var(--accent2)
+                );
+            }
+            .project-tag {
+                display: inline-block;
+                padding: 0.25rem 0.75rem;
+                border-radius: 50px;
+                font-size: 0.75rem;
+                font-weight: 600;
+                margin-bottom: 0.8rem;
+            }
+            .tag-purple {
+                background: rgba(108, 99, 255, 0.15);
+                color: var(--accent);
+            }
+            .tag-green {
+                background: rgba(0, 212, 170, 0.15);
+                color: var(--accent2);
+            }
+            .tag-red {
+                background: rgba(255, 107, 107, 0.15);
+                color: var(--accent3);
+            }
+            .tag-blue {
+                background: rgba(100, 180, 255, 0.15);
+                color: #64b4ff;
+            }
+            .project-card h3 {
+                font-size: 1.15rem;
+                margin-bottom: 0.6rem;
+                font-weight: 600;
+            }
+            .project-card p {
+                color: var(--text-dim);
+                font-size: 0.92rem;
+                line-height: 1.7;
+            }
+            .project-meta {
+                display: flex;
+                gap: 0.5rem;
+                flex-wrap: wrap;
+                margin-top: 1rem;
+            }
+            .project-meta span {
+                font-size: 0.75rem;
+                padding: 0.2rem 0.6rem;
+                border-radius: 50px;
+                background: rgba(255, 255, 255, 0.04);
+                color: var(--text-dim);
+                border: 1px solid var(--glass-border);
+            }
 
-    <article class="row">
-      <div class="row__margin"><span class="note">2022</span></div>
-      <div class="row__body">
-        <h3 class="row__title">Research Intern, Organisation</h3>
-        <p class="row__meta">Team · City</p>
-        <p class="row__text">What you built or found, in one line.</p>
-      </div>
-    </article>
+            /* Publications */
+            .pub-list {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .pub-item {
+                padding: 1.5rem 1.8rem;
+                border-left: 3px solid var(--accent);
+            }
+            .pub-item:nth-child(even) {
+                border-left-color: var(--accent2);
+            }
+            .pub-item:nth-child(3n) {
+                border-left-color: var(--accent3);
+            }
+            .pub-title {
+                font-weight: 600;
+                font-size: 1rem;
+                margin-bottom: 0.4rem;
+                line-height: 1.5;
+            }
+            .pub-authors {
+                color: var(--text-dim);
+                font-size: 0.85rem;
+                margin-bottom: 0.3rem;
+            }
+            .pub-journal {
+                color: var(--accent2);
+                font-size: 0.85rem;
+                font-style: italic;
+            }
+            .pub-year {
+                display: inline-block;
+                margin-top: 0.5rem;
+                padding: 0.15rem 0.6rem;
+                border-radius: 50px;
+                font-size: 0.75rem;
+                font-weight: 600;
+                background: rgba(108, 99, 255, 0.12);
+                color: var(--accent);
+            }
+            .pub-badge {
+                display: inline-block;
+                margin-left: 0.5rem;
+                padding: 0.15rem 0.6rem;
+                border-radius: 50px;
+                font-size: 0.7rem;
+                font-weight: 600;
+                background: rgba(0, 212, 170, 0.12);
+                color: var(--accent2);
+            }
 
-    <article class="row">
-      <div class="row__margin"><span class="note">2019 — 22</span></div>
-      <div class="row__body">
-        <h3 class="row__title">MSc in Field, University</h3>
-        <p class="row__meta">Thesis: “Title of your thesis”</p>
-      </div>
-    </article>
-  </section>
+            /* Skills */
+            .skills-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.5rem;
+            }
+            .skill-category {
+                padding: 1.8rem;
+            }
+            .skill-category h3 {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            .skill-category h3 .icon {
+                font-size: 1.3rem;
+            }
+            .skill-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            .skill-tag {
+                padding: 0.4rem 0.9rem;
+                border-radius: 50px;
+                font-size: 0.82rem;
+                background: rgba(255, 255, 255, 0.04);
+                border: 1px solid var(--glass-border);
+                color: var(--text);
+                transition: all 0.3s;
+                cursor: default;
+            }
+            .skill-tag:hover {
+                background: rgba(108, 99, 255, 0.12);
+                border-color: var(--accent);
+                color: var(--accent);
+            }
 
-  <!-- ─── Selected work ────────────────────────────────────── -->
-  <section class="section">
-    <h2 class="section__title">Selected work</h2>
-    <div id="selected-pubs" class="pubs">
-      <p class="loading">Loading publications…</p>
-    </div>
-    <p class="section__more">
-      <a href="publications.html">All publications →</a>
-    </p>
-  </section>
+            /* Benchmarks */
+            .bench-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.5rem;
+            }
+            .bench-card {
+                padding: 1.8rem;
+                text-align: center;
+            }
+            .bench-icon {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+            .bench-card h3 {
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+            }
+            .bench-card p {
+                color: var(--text-dim);
+                font-size: 0.9rem;
+            }
+            .bench-bar {
+                height: 6px;
+                border-radius: 3px;
+                background: rgba(255, 255, 255, 0.06);
+                margin-top: 1rem;
+                overflow: hidden;
+            }
+            .bench-bar-fill {
+                height: 100%;
+                border-radius: 3px;
+                background: linear-gradient(
+                    90deg,
+                    var(--accent),
+                    var(--accent2)
+                );
+                transition: width 1.5s ease;
+            }
 
-</main>
+            /* Timeline */
+            .timeline {
+                position: relative;
+                padding-left: 2rem;
+            }
+            .timeline::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 2px;
+                background: linear-gradient(
+                    to bottom,
+                    var(--accent),
+                    var(--accent2)
+                );
+            }
+            .timeline-item {
+                position: relative;
+                padding: 0 0 2.5rem 2rem;
+            }
+            .timeline-item::before {
+                content: "";
+                position: absolute;
+                left: -2rem;
+                top: 0.4rem;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: var(--accent);
+                border: 2px solid var(--bg);
+                box-shadow: 0 0 0 3px var(--accent);
+            }
+            .timeline-date {
+                font-size: 0.8rem;
+                color: var(--accent2);
+                font-weight: 600;
+                margin-bottom: 0.3rem;
+            }
+            .timeline-item h3 {
+                font-size: 1.05rem;
+                margin-bottom: 0.2rem;
+            }
+            .timeline-item h4 {
+                color: var(--text-dim);
+                font-size: 0.9rem;
+                font-weight: 400;
+                margin-bottom: 0.5rem;
+            }
+            .timeline-item p {
+                color: var(--text-dim);
+                font-size: 0.88rem;
+                line-height: 1.7;
+            }
 
-<footer class="footer">
-  <span class="note">Last updated August 2026</span>
-  <span class="note">Built by hand</span>
-</footer>
+            /* Awards */
+            .awards-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 1.5rem;
+            }
+            .award-card {
+                padding: 1.8rem;
+                display: flex;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+            .award-icon {
+                font-size: 2rem;
+                flex-shrink: 0;
+            }
+            .award-card h3 {
+                font-size: 1rem;
+                margin-bottom: 0.3rem;
+            }
+            .award-card p {
+                color: var(--text-dim);
+                font-size: 0.88rem;
+            }
 
-<script src="pubs.js"></script>
-<script>renderSelected("selected-pubs");</script>
-</body>
+            /* Chat Interface */
+            .chat-toggle {
+                position: fixed;
+                bottom: 2rem;
+                right: 2rem;
+                z-index: 200;
+                width: 56px;
+                height: 56px;
+                border-radius: 50%;
+                background: linear-gradient(
+                    135deg,
+                    var(--accent),
+                    var(--accent2)
+                );
+                border: none;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem;
+                color: #fff;
+                box-shadow: 0 4px 20px rgba(108, 99, 255, 0.4);
+                transition: all 0.3s;
+            }
+            .chat-toggle:hover {
+                transform: scale(1.1);
+            }
+            .chat-toggle.active {
+                background: linear-gradient(135deg, var(--accent3), #ff8e8e);
+            }
+
+            .chat-window {
+                position: fixed;
+                bottom: 6rem;
+                right: 2rem;
+                z-index: 199;
+                width: 380px;
+                max-width: calc(100vw - 2rem);
+                max-height: calc(100vh - 8rem);
+                background: rgba(18, 18, 26, 0.95);
+                backdrop-filter: blur(20px);
+                border: 1px solid var(--glass-border);
+                border-radius: var(--radius);
+                display: none;
+                flex-direction: column;
+                box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+                overflow: hidden;
+            }
+            .chat-window.open {
+                display: flex;
+                animation: chatIn 0.3s ease;
+            }
+            @keyframes chatIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px) scale(0.95);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
+            }
+            .chat-header {
+                padding: 1rem 1.2rem;
+                background: linear-gradient(
+                    135deg,
+                    rgba(108, 99, 255, 0.15),
+                    rgba(0, 212, 170, 0.1)
+                );
+                border-bottom: 1px solid var(--glass-border);
+                display: flex;
+                align-items: center;
+                gap: 0.8rem;
+            }
+            .chat-header-avatar {
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                background: linear-gradient(
+                    135deg,
+                    var(--accent),
+                    var(--accent2)
+                );
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.9rem;
+            }
+            .chat-header-info h4 {
+                font-size: 0.9rem;
+                font-weight: 600;
+            }
+            .chat-header-info span {
+                font-size: 0.75rem;
+                color: var(--accent2);
+            }
+            .chat-messages {
+                flex: 1;
+                overflow-y: auto;
+                padding: 1rem;
+                display: flex;
+                flex-direction: column;
+                gap: 0.8rem;
+                min-height: 300px;
+                max-height: 400px;
+            }
+            .chat-msg {
+                max-width: 85%;
+                padding: 0.7rem 1rem;
+                border-radius: 12px;
+                font-size: 0.88rem;
+                line-height: 1.5;
+            }
+            .chat-msg.bot {
+                background: rgba(108, 99, 255, 0.1);
+                border: 1px solid rgba(108, 99, 255, 0.15);
+                align-self: flex-start;
+                border-bottom-left-radius: 4px;
+            }
+            .chat-msg.user {
+                background: rgba(0, 212, 170, 0.1);
+                border: 1px solid rgba(0, 212, 170, 0.15);
+                align-self: flex-end;
+                border-bottom-right-radius: 4px;
+            }
+            .chat-msg .msg-time {
+                font-size: 0.7rem;
+                color: var(--text-dim);
+                margin-top: 0.3rem;
+            }
+            .chat-input-area {
+                padding: 0.8rem;
+                border-top: 1px solid var(--glass-border);
+                display: flex;
+                gap: 0.5rem;
+            }
+            .chat-input-area input {
+                flex: 1;
+                padding: 0.6rem 1rem;
+                border-radius: 50px;
+                background: rgba(255, 255, 255, 0.04);
+                border: 1px solid var(--glass-border);
+                color: var(--text);
+                font-size: 0.88rem;
+                outline: none;
+            }
+            .chat-input-area input:focus {
+                border-color: var(--accent);
+            }
+            .chat-input-area input::placeholder {
+                color: var(--text-dim);
+            }
+            .chat-send {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: linear-gradient(
+                    135deg,
+                    var(--accent),
+                    var(--accent2)
+                );
+                border: none;
+                cursor: pointer;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s;
+            }
+            .chat-send:hover {
+                transform: scale(1.1);
+            }
+
+            /* Footer */
+            footer {
+                text-align: center;
+                padding: 3rem 2rem;
+                border-top: 1px solid var(--glass-border);
+                color: var(--text-dim);
+                font-size: 0.85rem;
+            }
+            footer a {
+                color: var(--accent);
+                text-decoration: none;
+            }
+
+            /* Responsive */
+            @media (max-width: 768px) {
+                .nav-links {
+                    position: fixed;
+                    top: 0;
+                    right: -100%;
+                    width: 70%;
+                    height: 100vh;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    background: rgba(10, 10, 15, 0.98);
+                    backdrop-filter: blur(20px);
+                    transition: right 0.3s;
+                    gap: 2rem;
+                }
+                .nav-links.open {
+                    right: 0;
+                }
+                .nav-toggle {
+                    display: flex;
+                }
+                .nav-toggle.active span:nth-child(1) {
+                    transform: rotate(45deg) translate(5px, 5px);
+                }
+                .nav-toggle.active span:nth-child(2) {
+                    opacity: 0;
+                }
+                .nav-toggle.active span:nth-child(3) {
+                    transform: rotate(-45deg) translate(5px, -5px);
+                }
+                .hero-name {
+                    font-size: 2.2rem;
+                }
+                .hero-title {
+                    font-size: 1rem;
+                }
+                .section-title {
+                    font-size: 1.7rem;
+                }
+                .projects-grid {
+                    grid-template-columns: 1fr;
+                }
+                .skills-container {
+                    grid-template-columns: 1fr;
+                }
+                .bench-grid {
+                    grid-template-columns: 1fr;
+                }
+                .awards-grid {
+                    grid-template-columns: 1fr;
+                }
+                .stats-row {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                .chat-window {
+                    right: 1rem;
+                    left: 1rem;
+                    width: auto;
+                    bottom: 5rem;
+                }
+            }
+
+            /* Animations */
+            .fade-up {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .fade-up.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            /* Typing indicator */
+            .typing {
+                display: flex;
+                gap: 4px;
+                padding: 0.5rem 0;
+            }
+            .typing span {
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: var(--accent);
+                animation: typing 1.4s infinite;
+            }
+            .typing span:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+            .typing span:nth-child(3) {
+                animation-delay: 0.4s;
+            }
+            @keyframes typing {
+                0%,
+                60%,
+                100% {
+                    opacity: 0.3;
+                    transform: translateY(0);
+                }
+                30% {
+                    opacity: 1;
+                    transform: translateY(-4px);
+                }
+            }
+
+            /* Pub filter */
+            .pub-filters {
+                display: flex;
+                gap: 0.5rem;
+                flex-wrap: wrap;
+                margin-bottom: 2rem;
+            }
+            .pub-filter {
+                padding: 0.4rem 1rem;
+                border-radius: 50px;
+                font-size: 0.82rem;
+                background: rgba(255, 255, 255, 0.04);
+                border: 1px solid var(--glass-border);
+                color: var(--text-dim);
+                cursor: pointer;
+                transition: all 0.3s;
+            }
+            .pub-filter.active,
+            .pub-filter:hover {
+                background: rgba(108, 99, 255, 0.15);
+                border-color: var(--accent);
+                color: var(--accent);
+            }
+
+            /* Contact section */
+            .contact-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+            .contact-card {
+                padding: 1.5rem;
+                text-align: center;
+            }
+            .contact-card .icon {
+                font-size: 2rem;
+                margin-bottom: 0.8rem;
+            }
+            .contact-card h3 {
+                font-size: 0.95rem;
+                margin-bottom: 0.3rem;
+            }
+            .contact-card p {
+                color: var(--text-dim);
+                font-size: 0.88rem;
+            }
+            .contact-card a {
+                color: var(--accent);
+                text-decoration: none;
+            }
+            .contact-card a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav id="navbar">
+            <a href="#hero" class="nav-logo">MS</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" onclick="closeNav()">About</a></li>
+                <li><a href="#projects" onclick="closeNav()">Projects</a></li>
+                <li>
+                    <a href="#publications" onclick="closeNav()"
+                        >Publications</a
+                    >
+                </li>
+                <li><a href="#skills" onclick="closeNav()">Skills</a></li>
+                <li>
+                    <a href="#benchmarks" onclick="closeNav()">Benchmarks</a>
+                </li>
+                <li><a href="#contact" onclick="closeNav()">Contact</a></li>
+            </ul>
+            <button
+                class="nav-toggle"
+                id="navToggle"
+                onclick="toggleNav()"
+                aria-label="Toggle menu"
+            >
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+
+        <!-- Hero -->
+        <section id="hero">
+            <div class="hero-content fade-up">
+                <div class="hero-avatar">MS</div>
+                <h1 class="hero-name">Michel Saliba</h1>
+                <p class="hero-title">PhD Candidate in Nuclear Engineering</p>
+                <p class="hero-desc">
+                    Researching neutron imaging, Monte Carlo simulation, and
+                    reactor kinetics at EPFL. Specializing in OpenMC
+                    development, neutron noise analysis, and zero-power reactor
+                    experiments at CROCUS.
+                </p>
+                <div class="hero-links">
+                    <a href="#contact" class="btn-primary">Get in Touch</a>
+                    <a href="#publications" class="btn-outline"
+                        >View Publications</a
+                    >
+                </div>
+                <div class="stats-row">
+                    <div class="stat-card glass-card">
+                        <div class="stat-number">14+</div>
+                        <div class="stat-label">Publications</div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Years PhD Research</div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Best Paper Awards</div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Monte Carlo Codes</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about">
+            <h2 class="section-title fade-up">About Me</h2>
+            <p class="section-subtitle fade-up">
+                Nuclear engineer bridging simulation and experiment
+            </p>
+            <div class="glass-card fade-up" style="margin-bottom: 2rem">
+                <p style="color: var(--text-dim); line-height: 1.8">
+                    I am a PhD candidate in Nuclear Engineering at
+                    <strong style="color: var(--text)"
+                        >École Polytechnique Fédérale de Lausanne (EPFL)</strong
+                    >, working on the design, construction, and commissioning of
+                    a new neutron imaging station at the
+                    <strong style="color: var(--accent2)"
+                        >CROCUS zero-power reactor</strong
+                    >. My research spans Monte Carlo particle transport
+                    simulation, neutron noise analysis, gamma spectroscopy, and
+                    nuclear reactor kinetics.
+                </p>
+            </div>
+            <div class="timeline fade-up">
+                <div class="timeline-item">
+                    <div class="timeline-date">Oct 2023 – Present</div>
+                    <h3>PhD Candidate – EPFL</h3>
+                    <h4>Department of Nuclear Engineering</h4>
+                    <p>
+                        Designing and building a neutron imaging station at
+                        CROCUS. Developing event-tracking features in OpenMC.
+                        Researching neutron noise, scatter camera systems, and
+                        reactor kinetics using novel 3D detector arrays.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Sep 2021 – Sep 2023</div>
+                    <h3>MSc EPF-ETH in Nuclear Engineering</h3>
+                    <h4>ETH Zürich / EPFL</h4>
+                    <p>
+                        Specialized in Monte Carlo neutron transport, nuclear
+                        materials, thermo-hydraulics, and deterministic codes.
+                        Completed Master Thesis on temporal and spatial
+                        correlation in CROCUS with the SAFFRON 3D detector
+                        array.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Sep 2019 – Jun 2021</div>
+                    <h3>BSc in Physics</h3>
+                    <h4>Université Saint-Joseph de Beyrouth</h4>
+                    <p>
+                        Graduated as top-ranked student. Built strong
+                        fundamentals in mathematics and physics.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Sep 2017 – Jun 2021</div>
+                    <h3>Mechanical Engineering (3 Years)</h3>
+                    <h4>Lebanese University Faculty of Engineering</h4>
+                    <p>
+                        Completed several optimization projects. Gained
+                        fundamentals in programming and key engineering
+                        concepts.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+            <h2 class="section-title fade-up">Key Projects</h2>
+            <p class="section-subtitle fade-up">
+                Research highlights from my PhD and academic career
+            </p>
+            <div class="projects-grid">
+                <div class="glass-card project-card fade-up">
+                    <span class="project-tag tag-purple">Neutron Imaging</span>
+                    <h3>CROCUS Neutron Imaging Station</h3>
+                    <p>
+                        Designed, built, and initiated a new high-precision
+                        neutron imaging station at the CROCUS zero-power
+                        reactor. Conducted first neutron imaging experiments,
+                        expanding the facility's experimental capabilities for
+                        nuclear research.
+                    </p>
+                    <div class="project-meta">
+                        <span>CROCUS Reactor</span>
+                        <span>Neutron Radiography</span>
+                        <span>EPFL</span>
+                    </div>
+                </div>
+
+                <div class="glass-card project-card fade-up">
+                    <span class="project-tag tag-green"
+                        >Monte Carlo Development</span
+                    >
+                    <h3>OpenMC Event Tracking Feature</h3>
+                    <p>
+                        Engineered and validated a new event-tracking (collision
+                        tracking) feature within the OpenMC simulation code,
+                        optimized for neutron spectroscopy, scatter camera
+                        systems, neutron noise analysis, and multiplicity
+                        counting.
+                    </p>
+                    <div class="project-meta">
+                        <span>OpenMC</span>
+                        <span>C++</span>
+                        <span>Neutron Transport</span>
+                    </div>
+                </div>
+
+                <div class="glass-card project-card fade-up">
+                    <span class="project-tag tag-red">Reactor Kinetics</span>
+                    <h3>SAFFRON 3D Detector System</h3>
+                    <p>
+                        Developed and deployed SAFFRON — a novel 150-node 3D
+                        detector system for precise measurement of the prompt
+                        neutron decay constant in a zero-power reactor.
+                        Extracted kinetics parameters using neutron noise
+                        techniques with Fourier transform algorithms.
+                    </p>
+                    <div class="project-meta">
+                        <span>SAFFRON</span>
+                        <span>Neutron Noise</span>
+                        <span>3D Detector Array</span>
+                    </div>
+                </div>
+
+                <div class="glass-card project-card fade-up">
+                    <span class="project-tag tag-blue">Nuclear Security</span>
+                    <h3>Xenon-135 Poisoning Observation</h3>
+                    <p>
+                        Pioneered advanced gamma-ray spectroscopy methodologies
+                        aimed at directly observing and quantifying Xenon-135
+                        poisoning dynamics in real-time in a zero-power reactor,
+                        with applications to nuclear safeguards.
+                    </p>
+                    <div class="project-meta">
+                        <span>Gamma Spectroscopy</span>
+                        <span>Xe-135</span>
+                        <span>Nuclear Safeguards</span>
+                    </div>
+                </div>
+
+                <div class="glass-card project-card fade-up">
+                    <span class="project-tag tag-purple"
+                        >Simulation Engineering</span
+                    >
+                    <h3>Fuel Assembly Decay Heat Simulation</h3>
+                    <p>
+                        At Kernkraftwerk Gösgen: Built end-to-end simulation of
+                        irradiation cycles of fuel assemblies to compute decay
+                        heat using C#. Code was verified against other codes and
+                        concluded successfully.
+                    </p>
+                    <div class="project-meta">
+                        <span>C#</span>
+                        <span>Decay Heat</span>
+                        <span>KKG</span>
+                    </div>
+                </div>
+
+                <div class="glass-card project-card fade-up">
+                    <span class="project-tag tag-green"
+                        >Radiation Protection</span
+                    >
+                    <h3>LINAC Room Shielding Application</h3>
+                    <p>
+                        Designed a user-friendly C# WPF application to compute
+                        wall thicknesses around LINAC rooms for radiation
+                        protection. Fully designed and implemented during
+                        internship at Mount-Lebanon Hospital.
+                    </p>
+                    <div class="project-meta">
+                        <span>C#</span>
+                        <span>WPF</span>
+                        <span>Radiation Protection</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications -->
+        <section id="publications">
+            <h2 class="section-title fade-up">
+                Academic Publications & Research
+            </h2>
+            <p class="section-subtitle fade-up">
+                Peer-reviewed papers and conference proceedings
+            </p>
+
+            <div class="pub-filters fade-up">
+                <button
+                    class="pub-filter active"
+                    onclick="filterPubs('all', this)"
+                >
+                    All
+                </button>
+                <button
+                    class="pub-filter"
+                    onclick="filterPubs('journal', this)"
+                >
+                    Journal Articles
+                </button>
+                <button
+                    class="pub-filter"
+                    onclick="filterPubs('conference', this)"
+                >
+                    Conference Papers
+                </button>
+                <button class="pub-filter" onclick="filterPubs('2026', this)">
+                    2026
+                </button>
+                <button class="pub-filter" onclick="filterPubs('2025', this)">
+                    2025
+                </button>
+                <button class="pub-filter" onclick="filterPubs('2024', this)">
+                    2024
+                </button>
+            </div>
+
+            <div class="pub-list" id="pubList">
+                <div
+                    class="glass-card pub-item fade-up"
+                    data-type="journal"
+                    data-year="2026"
+                >
+                    <div class="pub-title">
+                        Measurement of the prompt neutron decay constant in a
+                        zero-power reactor using a novel 3D detector system
+                    </div>
+                    <div class="pub-authors">
+                        Saliba, M; Lamirand, V; Monange, W; Vitullo, F; Hursin,
+                        M; Pautz, A; Pakari, O
+                    </div>
+                    <div class="pub-journal">
+                        Nuclear Science and Engineering, Vol. 200, Suppl. 1,
+                        S406-S414
+                    </div>
+                    <span class="pub-year">2026</span>
+                    <span class="pub-badge">Taylor & Francis</span>
+                </div>
+
+                <div
+                    class="glass-card pub-item fade-up"
+                    data-type="journal"
+                    data-year="2026"
+                >
+                    <div class="pub-title">
+                        First neutron imaging experiments at the CROCUS
+                        zero-power reactor
+                    </div>
+                    <div class="pub-authors">
+                        Saliba, M; Lehmann, E; Trtik, P; Lamirand, V;
+                        Dupont-Bembinoff, A; Montecchio, C; Clément, D; Pautz,
+                        A; Pakari, O
+                    </div>
+                    <div class="pub-journal">
+                        Nuclear Instruments and Methods in Physics Research
+                        Section A, 171590
+                    </div>
+                    <span class="pub-year">2026</span>
+                    <span class="pub-badge">North-Holland</span>
+                </div>
+
+                <div
+                    class="glass-card pub-item fade-up"
+                    data-type="journal"
+                    data-year="2026"
+                >
+                    <div class="pub-title">
+                        Collision Tracking in OpenMC: Methods and Applications
+                        in Neutron Noise, Neutron Imaging, Time-of-Flight, and
+                        Multiplicity Counting
+                    </div>
+                    <div class="pub-authors">
+                        Saliba, M; Tramm, J.R; Romano, P.K; Knudsen, E.B; Pautz,
+                        A; Pakari, O.V
+                    </div>
+                    <div class="pub-journal">
+                        Nuclear Science and Engineering, 1-11
+                    </div>
+                    <span class="pub-year">2026</span>
+                    <span class="pub-badge">Taylor & Francis</span>
+                </div>
+
+                <div
+                    class="glass-card pub-item fade-up"
+                    data-type="journal"
+                    data-year="2026"
+                >
+                    <div class="pub-title">
+                        Synchronization of neutron and gamma detector signals
+                        for noise studies
+                    </div>
+                    <div class="pub-authors">
+                        Kostelac, C.M; Darby, F.B; Lamirand, V; Pozzi, S.A;
+                        Saliba, M; Pakari, O.V
+                    </div>
+                    <div class="pub-journal">
+                        Nuclear Instruments and Methods in Physics Research
+                        Section A, 171475
+                    </div>
+                    <span class="pub-year">2026</span>
+                    <span class="pub-badge">North-Holland</span>
+                </div>
+
+                <div
+                    class="glass-card pub-item fade-up"
+                    data-type="conference"
+                    data-year="2025"
+                >
+                    <div class="pub-title">
+                        Development of an Event Tracking Feature in OpenMC for
+                        Neutron Spectroscopy and Scatter Camera Systems
+                    </div>
+                    <div class="pub-authors">
+                        Saliba, M; Romano, P; Tramm, J; Knudsen, E.B; Siefman,
+                        D; Pautz, A; Pakari, O
+                    </div>
+                    <div class="pub-journal">
+                        M&C 2025 – International Conference on Mathematics and
+                        Computational Methods Applied to Nuclear Science and
+                        Engineering
+                    </div>
+                    <span class="pub-year">2025</span>
+                </div>
+
+                <div
+                    class="glass-card pub-item fade-up"
+                    data-type="conference"
+                    data-year="2025"
+                >
+                    <div class="pub-title">
+                        Development of an Event Tracking Feature in OpenMC for
+                        Neutron Noise Analysis
+                    </div>
+                    <div class="pub-authors">
+                        Saliba, M; Tramm, J; Romano, P; Knudsen, E.B; Pautz, A;
+                        Pakari, O
+                    </div>
+                    <div class="pub-journal">
+                        EPJ Web of Conferences, 338, 04001
+                    </div>
+                    <span class="pub-year">2025</span>
+                    <span class="pub-badge">EDP Sciences</span>
+                </div>
+
+                <div
+                    class="glass-card pub-item fade-up"
+                    data-type="conference"
+                    data-year="2025"
+                >
+                    <div class="pub-title">
+                        Towards the Direct Observation of Xenon-135 Poisoning in
+                        a Zero-Power Reactor via Gamma Spectroscopy
+                    </div>
+                    <div class="pub-authors">
+                        Pakari, O; Lucas, A; Darby, F; Saliba, M; Lamirand, V;
+                        Pautz, A; Pozzi, S
+                    </div>
+                    <div class="pub-journal">
+                        EPJ Web of Conferences, 338, 04010
+                    </div>
+                    <span class="pub-year">2025</span>
+                    <span class="pub-badge">EDP Sciences</span>
+                </div>
+
+                <div
+                    class="glass-card pub-item fade-up"
+                    data-type="conference"
+                    data-year="2025"
+                >
+                    <div class="pub-title">
+                        Simulations of a new neutron imaging station at the
+                        CROCUS zero power reactor
+                    </div>
+                    <div class="pub-authors">
+                        Saliba, M; Lehmann, E; Trtik, P; Lamirand, V; Pautz, A;
+                        Pakari, O
+                    </div>
+                    <div class="pub-journal">
+                        EPJ Web of Conferences, 338, 04012
+                    </div>
+                    <span class="pub-year">2025</span>
+                    <span class="pub-badge">EDP Sciences</span>
+                </div>
+
+                <div
+                    class="glass-card pub-item fade-up"
+                    data-type="conference"
+                    data-year="2025"
+                >
+                    <div class="pub-title">
+                        Investigation of Noise Detection Systems in the CROCUS
+                        Reactor from SANDcaStLE
+                    </div>
+                    <div class="pub-authors">
+                        Darby, F.B; Kostelac, C; Saliba, M; Lamirand, V; Clarke,
+                        S.D; Pautz, A; Pozzi, S.A; Pakari, O.V
+                    </div>
+                    <div class="pub-journal">
+                        EPJ Web of Conferences, 338, 04015
+                    </div>
+                    <span class="pub-year">2025</span>
+                    <span class="pub-badge">EDP Sciences</span>
+                </div>
+
+                <div
+                    class="glass-card pub-item fade-up"
+                    data-type="conference"
+                    data-year="2025"
+                >
+                    <div class="pub-title">
+                        Predicting Neutron Noise Detector Responses for
+                        Zero-Power Molten Salt Reactor Experiments
+                    </div>
+                    <div class="pub-authors">
+                        Pakari, O; Świątkowska, J; Saliba, M
+                    </div>
+                    <div class="pub-journal">
+                        EPJ Web of Conferences, 338, 04011
+                    </div>
+                    <span class="pub-year">2025</span>
+                    <span class="pub-badge">EDP Sciences</span>
+                </div>
+
+                <div
+                    class="glass-card pub-item fade-up"
+                    data-type="journal"
+                    data-year="2025"
+                >
+                    <div class="pub-title">
+                        Monitoring 135Xe after the shutdown of a research
+                        reactor using gamma-ray spectroscopy
+                    </div>
+                    <div class="pub-authors">
+                        Darby, F; Lucas, A; Saliba, M; Pozzi, S; Pakari, O
+                    </div>
+                    <div class="pub-journal">
+                        Nuclear Instruments and Methods in Physics Research
+                        Section A, 171252
+                    </div>
+                    <span class="pub-year">2025</span>
+                    <span class="pub-badge">North-Holland</span>
+                </div>
+
+                <div
+                    class="glass-card pub-item fade-up"
+                    data-type="conference"
+                    data-year="2024"
+                >
+                    <div class="pub-title">
+                        Measurement of the Prompt Decay Constant in a Zero Power
+                        Reactor Using a Novel 3D Detector System
+                    </div>
+                    <div class="pub-authors">
+                        Saliba, M; Pakari, O; Monange, W; Pautz, A; Lamirand, V
+                    </div>
+                    <div class="pub-journal">
+                        PHYSOR 2024 – International Conference on Physics of
+                        Reactors
+                    </div>
+                    <span class="pub-year">2024</span>
+                    <span class="pub-badge">American Nuclear Society</span>
+                    <span class="pub-badge">🏆 Best Student Paper Award</span>
+                </div>
+
+                <div
+                    class="glass-card pub-item fade-up"
+                    data-type="conference"
+                    data-year="2025"
+                >
+                    <div class="pub-title">
+                        Measuring neutron noise in a research reactor using a 3D
+                        core mapping system
+                    </div>
+                    <div class="pub-authors">Saliba, M; Pakari, O</div>
+                    <div class="pub-journal">2025 ETSON Conference</div>
+                    <span class="pub-year">2025</span>
+                </div>
+
+                <div
+                    class="glass-card pub-item fade-up"
+                    data-type="conference"
+                    data-year="2025"
+                >
+                    <div class="pub-title">
+                        Verification of the collision tracking feature in OpenMC
+                        with MCNPX-PoliMi and preliminary validation with a
+                        252Cf experiment
+                    </div>
+                    <div class="pub-authors">
+                        Pakari, O; Saliba, M; Breitenmoser, D; Pozzi, S
+                    </div>
+                    <div class="pub-journal">Conference Proceedings</div>
+                    <span class="pub-year">2025</span>
+                </div>
+
+                <div
+                    class="glass-card pub-item fade-up"
+                    data-type="conference"
+                    data-year="2025"
+                >
+                    <div class="pub-title">
+                        Investigation of Neutron Noise Phenomena in Multiplying
+                        Breeding Blankets of Fusion Reactors
+                    </div>
+                    <div class="pub-authors">Saliba, M; Pakari, O</div>
+                    <div class="pub-journal">Conference Proceedings</div>
+                    <span class="pub-year">2025</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+            <h2 class="section-title fade-up">Technical Skills</h2>
+            <p class="section-subtitle fade-up">
+                Tools, languages, and domains of expertise
+            </p>
+            <div class="skills-container">
+                <div class="glass-card skill-category fade-up">
+                    <h3><span class="icon">💻</span> Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">WPF</span>
+                        <span class="skill-tag">Linux / Bash</span>
+                    </div>
+                </div>
+
+                <div class="glass-card skill-category fade-up">
+                    <h3>
+                        <span class="icon">⚛️</span> Monte Carlo & Simulation
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">OpenMC</span>
+                        <span class="skill-tag">MCNPX-PoliMi</span>
+                        <span class="skill-tag">Neutron Transport</span>
+                        <span class="skill-tag">Event Tracking</span>
+                        <span class="skill-tag">Reverse Monte Carlo</span>
+                        <span class="skill-tag">Simulated Annealing</span>
+                    </div>
+                </div>
+
+                <div class="glass-card skill-category fade-up">
+                    <h3><span class="icon">🔬</span> Nuclear Engineering</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Neutron Imaging</span>
+                        <span class="skill-tag">Gamma Spectroscopy</span>
+                        <span class="skill-tag">Neutron Noise Analysis</span>
+                        <span class="skill-tag">Reactor Kinetics</span>
+                        <span class="skill-tag">Dosimetry</span>
+                        <span class="skill-tag">Scatter Camera Systems</span>
+                        <span class="skill-tag">Nuclear Safeguards</span>
+                        <span class="skill-tag">Thermo-hydraulics</span>
+                    </div>
+                </div>
+
+                <div class="glass-card skill-category fade-up">
+                    <h3>
+                        <span class="icon">🛡️</span> Certifications & Expertise
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag"
+                            >I1 Radiation Protection Expert</span
+                        >
+                        <span class="skill-tag"
+                            >Licensed Research Reactor Operator</span
+                        >
+                        <span class="skill-tag">Type B/C Work Sectors</span>
+                        <span class="skill-tag">Data Management</span>
+                    </div>
+                </div>
+
+                <div class="glass-card skill-category fade-up">
+                    <h3><span class="icon">🌐</span> Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Arabic (Native)</span>
+                        <span class="skill-tag"
+                            >English (Business Professional)</span
+                        >
+                        <span class="skill-tag"
+                            >French (Business Professional)</span
+                        >
+                        <span class="skill-tag"
+                            >German (Basic Interaction)</span
+                        >
+                    </div>
+                </div>
+
+                <div class="glass-card skill-category fade-up">
+                    <h3><span class="icon">📊</span> Tools & Platforms</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Microsoft Office</span>
+                        <span class="skill-tag">Visual Studio</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Data Processing</span>
+                        <span class="skill-tag"
+                            >Fourier Transform Algorithms</span
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benchmarks -->
+        <section id="benchmarks">
+            <h2 class="section-title fade-up">Research Benchmarks</h2>
+            <p class="section-subtitle fade-up">
+                Key metrics and achievements in my research career
+            </p>
+            <div class="bench-grid">
+                <div class="glass-card bench-card fade-up">
+                    <div class="bench-icon">📄</div>
+                    <h3>Publications</h3>
+                    <p>
+                        14+ peer-reviewed papers and conference proceedings in
+                        top nuclear engineering journals
+                    </p>
+                    <div class="bench-bar">
+                        <div class="bench-bar-fill" style="width: 90%"></div>
+                    </div>
+                </div>
+
+                <div class="glass-card bench-card fade-up">
+                    <div class="bench-icon">🏆</div>
+                    <h3>Awards</h3>
+                    <p>
+                        Best Student Paper Award at PHYSOR 2024 & Dean's Award
+                        for Excellence in Teaching 2023-2024
+                    </p>
+                    <div class="bench-bar">
+                        <div class="bench-bar-fill" style="width: 95%"></div>
+                    </div>
+                </div>
+
+                <div class="glass-card bench-card fade-up">
+                    <div class="bench-icon">⚡</div>
+                    <h3>OpenMC Development</h3>
+                    <p>
+                        Engineered collision tracking feature enabling neutron
+                        noise, imaging, TOF, and multiplicity counting
+                    </p>
+                    <div class="bench-bar">
+                        <div class="bench-bar-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+
+                <div class="glass-card bench-card fade-up">
+                    <div class="bench-icon">🎯</div>
+                    <h3>SAFFRON Detector</h3>
+                    <p>
+                        150-node 3D detector system for precise prompt neutron
+                        decay constant measurement
+                    </p>
+                    <div class="bench-bar">
+                        <div class="bench-bar-fill" style="width: 88%"></div>
+                    </div>
+                </div>
+
+                <div class="glass-card bench-card fade-up">
+                    <div class="bench-icon">🔬</div>
+                    <h3>CROCUS Imaging</h3>
+                    <p>
+                        First neutron imaging experiments at CROCUS zero-power
+                        reactor — expanding facility capabilities
+                    </p>
+                    <div class="bench-bar">
+                        <div class="bench-bar-fill" style="width: 82%"></div>
+                    </div>
+                </div>
+
+                <div class="glass-card bench-card fade-up">
+                    <div class="bench-icon">🌍</div>
+                    <h3>International Reach</h3>
+                    <p>
+                        Published across EPJ Web of Conferences, Nuclear Science
+                        & Engineering, NIM-A, and major conferences
+                    </p>
+                    <div class="bench-bar">
+                        <div class="bench-bar-fill" style="width: 78%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Awards Section -->
+            <div style="margin-top: 3rem">
+                <h3 class="section-title fade-up" style="font-size: 1.5rem">
+                    Awards & Recognition
+                </h3>
+                <div class="awards-grid">
+                    <div class="glass-card award-card fade-up">
+                        <div class="award-icon">🥇</div>
+                        <div>
+                            <h3>Best Student Paper Award — PHYSOR 2024</h3>
+                            <p>
+                                1st Prize for the Best Student Paper Award at
+                                the International Conference on the Physics of
+                                Reactors, San Francisco.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="glass-card award-card fade-up">
+                        <div class="award-icon">🎓</div>
+                        <div>
+                            <h3>
+                                Dean's Award for Excellence in Teaching — EPFL
+                                2023-2024
+                            </h3>
+                            <p>
+                                Prize for recognition of teaching contributions
+                                at EPFL.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <h2 class="section-title fade-up">Get in Touch</h2>
+            <p class="section-subtitle fade-up">
+                Interested in collaboration or have questions about my research?
+            </p>
+            <div class="contact-grid">
+                <div class="glass-card contact-card fade-up">
+                    <div class="icon">📧</div>
+                    <h3>Email</h3>
+                    <p>
+                        <a href="mailto:michelsaliba58@gmail.com"
+                            >michelsaliba58@gmail.com</a
+                        >
+                    </p>
+                </div>
+                <div class="glass-card contact-card fade-up">
+                    <div class="icon">📞</div>
+                    <h3>Phone</h3>
+                    <p><a href="tel:+41762148405">+41 76 214 84 05</a></p>
+                </div>
+                <div class="glass-card contact-card fade-up">
+                    <div class="icon">💼</div>
+                    <h3>LinkedIn</h3>
+                    <p>
+                        <a href="https://www.linkedin.com/in" target="_blank"
+                            >linkedin.com/in</a
+                        >
+                    </p>
+                </div>
+                <div class="glass-card contact-card fade-up">
+                    <div class="icon">📍</div>
+                    <h3>Location</h3>
+                    <p>Lausanne, Switzerland</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>
+                © 2025 Michel Saliba. Built with precision — like a well-tuned
+                reactor.
+            </p>
+            <p style="margin-top: 0.5rem">
+                <a href="https://www.linkedin.com/in" target="_blank"
+                    >LinkedIn</a
+                >
+                ·
+                <a href="mailto:michelsaliba58@gmail.com">Email</a>
+            </p>
+        </footer>
+
+        <!-- Chat Toggle -->
+        <button
+            class="chat-toggle"
+            id="chatToggle"
+            onclick="toggleChat()"
+            aria-label="Toggle AI chat"
+        >
+            <span id="chatIcon">🤖</span>
+        </button>
+
+        <!-- Chat Window -->
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div class="chat-header-avatar">🤖</div>
+                <div class="chat-header-info">
+                    <h4>Research Assistant</h4>
+                    <span>Online — Ask about my research</span>
+                </div>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-msg bot">
+                    Hello! I'm Michel Saliba's research assistant. Ask me about
+                    his publications, projects, skills, or background.
+                    <div class="msg-time">Just now</div>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input
+                    type="text"
+                    id="chatInput"
+                    placeholder="Ask about Michel's research..."
+                    onkeydown="if (event.key === 'Enter') sendMessage();"
+                />
+                <button class="chat-send" onclick="sendMessage()">➤</button>
+            </div>
+        </div>
+
+        <script>
+            // Navigation
+            const navbar = document.getElementById("navbar");
+            const navLinks = document.getElementById("navLinks");
+            const navToggle = document.getElementById("navToggle");
+
+            window.addEventListener("scroll", () => {
+                navbar.classList.toggle("scrolled", window.scrollY > 50);
+            });
+
+            function toggleNav() {
+                navLinks.classList.toggle("open");
+                navToggle.classList.toggle("active");
+            }
+
+            function closeNav() {
+                navLinks.classList.remove("open");
+                navToggle.classList.remove("active");
+            }
+
+            // Intersection Observer for fade-up animations
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
+                        }
+                    });
+                },
+                { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
+            );
+
+            document
+                .querySelectorAll(".fade-up")
+                .forEach((el) => observer.observe(el));
+
+            // Publication filter
+            function filterPubs(type, btn) {
+                document
+                    .querySelectorAll(".pub-filter")
+                    .forEach((b) => b.classList.remove("active"));
+                btn.classList.add("active");
+                document.querySelectorAll(".pub-item").forEach((item) => {
+                    const show =
+                        type === "all" ||
+                        item.dataset.type === type ||
+                        item.dataset.year === type;
+                    item.style.display = show ? "block" : "none";
+                });
+            }
+
+            // Chat functionality
+            const chatWindow = document.getElementById("chatWindow");
+            const chatToggle = document.getElementById("chatToggle");
+            const chatIcon = document.getElementById("chatIcon");
+            const chatMessages = document.getElementById("chatMessages");
+            const chatInput = document.getElementById("chatInput");
+
+            const knowledgeBase = {
+                greetings: {
+                    keywords: [
+                        "hello",
+                        "hi",
+                        "hey",
+                        "good morning",
+                        "good afternoon",
+                        "good evening",
+                        "howdy",
+                        "what's up",
+                    ],
+                    responses: [
+                        "Hello! Welcome to Michel Saliba's portfolio. How can I help you learn about his research?",
+                        "Hi there! Feel free to ask about Michel's publications, projects, skills, or background.",
+                        "Hello! I'm here to help you explore Michel's academic work. What would you like to know?",
+                    ],
+                },
+                about: {
+                    keywords: [
+                        "about",
+                        "who",
+                        "background",
+                        "biography",
+                        "bio",
+                        "personal",
+                        "tell me about",
+                    ],
+                    responses: [
+                        "Michel Saliba is a PhD candidate in Nuclear Engineering at EPFL (École Polytechnique Fédérale de Lausanne). He holds a Master's from ETH Zürich/EPFL and a Bachelor's in Physics from Université Saint-Joseph de Beyrouth, where he graduated as the top-ranked student in his class.",
+                        "Michel is a nuclear engineer based in Lausanne, Switzerland. He completed his MSc at ETH Zürich/EPFL and is currently pursuing his PhD at EPFL, focusing on neutron imaging and Monte Carlo simulation development.",
+                    ],
+                },
+                education: {
+                    keywords: [
+                        "education",
+                        "degree",
+                        "phd",
+                        "phd",
+                        "doctorate",
+                        "master",
+                        "bachelor",
+                        "university",
+                        "college",
+                        "academic",
+                        "studied",
+                        "school",
+                    ],
+                    responses: [
+                        "Michel's education:\n• PhD Candidate in Nuclear Engineering, EPFL (Oct 2023–Present)\n• MSc EPF-ETH in Nuclear Engineering, ETH Zürich/EPFL (Sep 2021–Sep 2023)\n• BSc in Physics, Université Saint-Joseph de Beyrouth (Sep 2019–Jun 2021) — Top-ranked student\n• Mechanical Engineering (3 years), Lebanese University Faculty of Engineering (Sep 2017–Jun 2021)",
+                        "Michel earned his MSc from ETH Zürich/EPFL and is currently a PhD candidate at EPFL. His bachelor's degree was in Physics from Université Saint-Joseph de Beyrouth, where he graduated as the top-ranked student.",
+                    ],
+                },
+                research: {
+                    keywords: [
+                        "research",
+                        "phd",
+                        "thesis",
+                        "dissertation",
+                        "doctoral",
+                        "what do you work",
+                        "focus",
+                        "focalize",
+                    ],
+                    responses: [
+                        "Michel's PhD research focuses on designing, building, and initiating a new neutron imaging station at the CROCUS zero-power reactor. His work spans Monte Carlo simulation development (OpenMC event tracking), neutron noise analysis, gamma spectroscopy, and reactor kinetics using novel 3D detector systems.",
+                        "Michel's research encompasses:\n• Neutron imaging at CROCUS zero-power reactor\n• OpenMC event/collision tracking feature development\n• Neutron noise analysis and reactor kinetics\n• Gamma spectroscopy for Xenon-135 observation\n• Scatter camera systems and neutron spectroscopy",
+                    ],
+                },
+                publications: {
+                    keywords: [
+                        "publication",
+                        "paper",
+                        "papers",
+                        "journal",
+                        "conference",
+                        "published",
+                        "pub",
+                        "citations",
+                        "scholar",
+                        "google scholar",
+                        "cited",
+                    ],
+                    responses: [
+                        "Michel has 14+ publications in top-tier journals and conferences including:\n• Nuclear Science and Engineering (Taylor & Francis)\n• Nuclear Instruments and Methods in Physics Research Section A (North-Holland)\n• EPJ Web of Conferences (EDP Sciences)\n• PHYSOR 2024, M&C 2025, ETSON 2025\n\nHis PHYSOR 2024 paper won the Best Student Paper Award!",
+                        "Michel has published extensively in nuclear engineering. Key venues include Nuclear Science and Engineering, NIM-A, and EPJ Web of Conferences. He has papers on neutron imaging, OpenMC development, reactor kinetics, and Xenon-135 monitoring. His work spans 2024-2026.",
+                    ],
+                },
+                openmc: {
+                    keywords: [
+                        "openmc",
+                        "monte carlo",
+                        "mc",
+                        "simulation",
+                        "collision tracking",
+                        "event tracking",
+                        "mcnp",
+                        "particle transport",
+                        "transport",
+                    ],
+                    responses: [
+                        "Michel engineered a new event-tracking (collision tracking) feature in OpenMC, optimized for:\n• Neutron spectroscopy\n• Scatter camera systems\n• Neutron noise analysis\n• Time-of-flight measurements\n• Multiplicity counting\n\nHe validated this feature against MCNPX-PoliMi and with a 252Cf experiment.",
+                        "Michel's OpenMC development work includes implementing collision tracking for neutron noise analysis, spectroscopy, and imaging applications. This feature enables detailed particle history tracking within the Monte Carlo simulation.",
+                    ],
+                },
+                crocus: {
+                    keywords: [
+                        "crocus",
+                        "reactor",
+                        "zero-power",
+                        "imaging",
+                        "neutron imaging",
+                        "station",
+                        "experiment",
+                        "facility",
+                    ],
+                    responses: [
+                        "Michel designed and built a new neutron imaging station at the CROCUS zero-power reactor at EPFL. He conducted the first neutron imaging experiments there, published in Nuclear Instruments and Methods in Physics Research Section A (2026). This work expands CROCUS's experimental capabilities significantly.",
+                        "The CROCUS reactor is a zero-power research reactor at EPFL. Michel's work on its neutron imaging station represents a major expansion of its capabilities, with first experiments published in 2026.",
+                    ],
+                },
+                saffron: {
+                    keywords: [
+                        "saffron",
+                        "detector",
+                        "3d",
+                        "array",
+                        "decay constant",
+                        "kinetics",
+                        "prompt neutron",
+                        "noise",
+                        "measurement",
+                    ],
+                    responses: [
+                        "SAFFRON is a novel 150-node 3D detector system developed by Michel for precise measurement of the prompt neutron decay constant in a zero-power reactor. His Master's thesis investigated temporal and spatial correlation in CROCUS using this system, extracting kinetics parameters via neutron noise techniques with Fourier transform algorithms.",
+                        "The SAFFRON detector system consists of 150 detectors arranged in a 3D array. Michel used it to measure the prompt neutron decay constant in CROCUS, with results published in Nuclear Science and Engineering (2026).",
+                    ],
+                },
+                xenon: {
+                    keywords: [
+                        "xenon",
+                        "xe",
+                        "poisoning",
+                        "spectroscopy",
+                        "gamma",
+                        "135",
+                        "isotope",
+                        "monitoring",
+                    ],
+                    responses: [
+                        "Michel pioneered advanced gamma-ray spectroscopy methodologies for directly observing and quantifying Xenon-135 poisoning dynamics in real-time in a zero-power reactor. This work has applications in nuclear safeguards and reactor monitoring. Published in EPJ Web of Conferences (2025) and Nuclear Instruments and Methods (2025).",
+                        "Xenon-135 is a critical neutron absorber in nuclear reactors. Michel's research uses gamma-ray spectroscopy to directly observe Xe-135 poisoning dynamics, published across multiple venues in 2025.",
+                    ],
+                },
+                skills: {
+                    keywords: [
+                        "skill",
+                        "programming",
+                        "language",
+                        "code",
+                        "c++",
+                        "python",
+                        "c#",
+                        "matlab",
+                        "linux",
+                        "tools",
+                        "software",
+                    ],
+                    responses: [
+                        "Michel's technical skills:\n• Languages: C, C++, C#, Python, MATLAB\n• Monte Carlo: OpenMC, MCNPX-PoliMi\n• Nuclear: Neutron imaging, gamma spectroscopy, neutron noise, dosimetry\n• Certifications: I1 Radiation Protection Expert, Licensed Research Reactor Operator\n• Languages: Arabic (Native), English & French (Business Professional), German (Basic)",
+                        "Michel is proficient in C, C++, C#, Python, and MATLAB. He has deep expertise in Monte Carlo neutron transport codes (OpenMC, MCNPX-PoliMi) and nuclear engineering domains including neutron imaging, gamma spectroscopy, and reactor kinetics.",
+                    ],
+                },
+                experience: {
+                    keywords: [
+                        "experience",
+                        "work",
+                        "job",
+                        "internship",
+                        "career",
+                        "professional",
+                        "employed",
+                        "worked",
+                        "gösgen",
+                        "nagra",
+                        "hospital",
+                        "maserati",
+                    ],
+                    responses: [
+                        "Michel's professional experience:\n• Simulation Engineer, Kernkraftwerk Gösgen (Apr-Dec 2022): Fuel assembly decay heat simulation in C#\n• Intern, Nagra (Jul-Sep 2022): Reverse Monte Carlo optimization, control rod activation profiling\n• Intern, Mount-Lebanon Hospital (Jun-Dec 2020): LINAC room shielding application in C# WPF\n• Quality Control Engineer, Maserati Motors (Oct-Dec 2018)",
+                        "Before his PhD, Michel worked at Kernkraftwerk Gösgen building fuel assembly simulations, at Nagra on Monte Carlo optimization for radioactive waste disposal, and at Mount-Lebanon Hospital developing radiation protection software.",
+                    ],
+                },
+                awards: {
+                    keywords: [
+                        "award",
+                        "prize",
+                        "recognition",
+                        "honor",
+                        "achievement",
+                        "best paper",
+                        "dean",
+                    ],
+                    responses: [
+                        "Michel's awards:\n🥇 Best Student Paper Award — PHYSOR 2024 (San Francisco)\n🎓 Dean's Award for Excellence in Teaching — EPFL 2023-2024",
+                        "Michel received the Best Student Paper Award at PHYSOR 2024 and the Dean's Award for Excellence in Teaching at EPFL for 2023-2024.",
+                    ],
+                },
+                contact: {
+                    keywords: [
+                        "contact",
+                        "email",
+                        "phone",
+                        "reach",
+                        "get in touch",
+                        "connect",
+                        "linkedin",
+                        "social",
+                    ],
+                    responses: [
+                        "You can reach Michel at:\n📧 michelsaliba58@gmail.com\n📞 +41 76 214 84 05\n💼 https://www.linkedin.com/in\n📍 Lausanne, Switzerland",
+                        "Michel can be contacted via email at michelsaliba58@gmail.com or phone at +41 76 214 84 05. He's also on LinkedIn.",
+                    ],
+                },
+                languages: {
+                    keywords: [
+                        "language",
+                        "lang",
+                        "speak",
+                        "arabic",
+                        "french",
+                        "english",
+                        "german",
+                        "multilingual",
+                    ],
+                    responses: [
+                        "Michel is multilingual:\n• Arabic — Native\n• English — Business Professional\n• French — Business Professional\n• German — Basic Interaction",
+                        "Michel speaks Arabic natively and has business-level proficiency in English and French, plus basic German.",
+                    ],
+                },
+                hobbies: {
+                    keywords: [
+                        "hobby",
+                        "hobbies",
+                        "interest",
+                        "interests",
+                        "personal",
+                        "leisure",
+                        "football",
+                        "piano",
+                        "philosophy",
+                        "finance",
+                    ],
+                    responses: [
+                        "Outside of research, Michel enjoys:\n• Philosophy and Ethics\n• Finance\n• Football\n• Piano",
+                        "Michel's hobbies include philosophy, ethics, finance, football, and playing the piano.",
+                    ],
+                },
+                extra: {
+                    keywords: [
+                        "volunteer",
+                        "volunteering",
+                        "solidarité",
+                        "association",
+                        "energy engineers",
+                        "extracurricular",
+                        "club",
+                        "president",
+                    ],
+                    responses: [
+                        "Michel's extracurricular activities:\n• Solidarité Liban-Suisse (Sep 2017–Jan 2023): Volunteered to procure medications and organize gift donations for orphans in Lebanon\n• Association of Energy Engineers (Feb-Sep 2021): President of Student Club, organized meetings on realistic energy solutions and low-carbon strategies",
+                        "Michel was President of the Association of Energy Engineers Student Club and volunteered with Solidarité Liban-Suisse, helping procure medications and organize donations for those in need.",
+                    ],
+                },
+                default: {
+                    responses: [
+                        "I'm not sure about that specific question, but feel free to ask about Michel's publications, research projects, skills, education, experience, or background!",
+                        "That's an interesting question! I can help with information about Michel's research, publications, technical skills, education, or professional experience. What would you like to know?",
+                        "I don't have specific information on that topic. Try asking about his work with OpenMC, CROCUS reactor, SAFFRON detector, neutron imaging, or his publications!",
+                    ],
+                },
+            };
+
+            function getResponse(input) {
+                const lower = input.toLowerCase();
+                let bestMatch = null;
+                let bestScore = 0;
+
+                for (const [category, data] of Object.entries(knowledgeBase)) {
+                    if (category === "default") continue;
+                    let score = 0;
+                    for (const keyword of data.keywords) {
+                        if (lower.includes(keyword)) score += keyword.length;
+                    }
+                    if (score > bestScore) {
+                        bestScore = score;
+                        bestMatch = data;
+                    }
+                }
+
+                if (bestMatch && bestScore > 0) {
+                    const responses = bestMatch.responses;
+                    return responses[
+                        Math.floor(Math.random() * responses.length)
+                    ];
+                }
+                const responses = knowledgeBase.default.responses;
+                return responses[Math.floor(Math.random() * responses.length)];
+            }
+
+            function toggleChat() {
+                chatWindow.classList.toggle("open");
+                chatToggle.classList.toggle("active");
+                if (chatWindow.classList.contains("open")) {
+                    chatInput.focus();
+                }
+            }
+
+            function sendMessage() {
+                const input = chatInput.value.trim();
+                if (!input) return;
+
+                addMessage(input, "user");
+                chatInput.value = "";
+
+                // Show typing indicator
+                const typingDiv = document.createElement("div");
+                typingDiv.className = "chat-msg bot";
+                typingDiv.innerHTML =
+                    '<div class="typing"><span></span><span></span><span></span></div>';
+                chatMessages.appendChild(typingDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                setTimeout(
+                    () => {
+                        typingDiv.remove();
+                        const response = getResponse(input);
+                        addMessage(response, "bot");
+                    },
+                    800 + Math.random() * 600,
+                );
+            }
+
+            function addMessage(text, type) {
+                const div = document.createElement("div");
+                div.className = `chat-msg ${type}`;
+                const time = new Date().toLocaleTimeString([], {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                });
+                div.innerHTML = `${text.replace(/\n/g, "<br>")}<div class="msg-time">${time}</div>`;
+                chatMessages.appendChild(div);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+                anchor.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(
+                        this.getAttribute("href"),
+                    );
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                        });
+                    }
+                });
+            });
+
+            // Animate benchmark bars on scroll
+            const benchObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target
+                                .querySelectorAll(".bench-bar-fill")
+                                .forEach((bar) => {
+                                    const width = bar.style.width;
+                                    bar.style.width = "0%";
+                                    setTimeout(() => {
+                                        bar.style.width = width;
+                                    }, 200);
+                                });
+                        }
+                    });
+                },
+                { threshold: 0.3 },
+            );
+
+            document
+                .querySelectorAll(".bench-grid")
+                .forEach((el) => benchObserver.observe(el));
+        </script>
+    </body>
 </html>
