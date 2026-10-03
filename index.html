@@ -1,134 +1,223 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Michel Saliba</title>
-<meta name="description" content="Michel Saliba, PhD candidate in Nuclear Engineering at EPFL. Neutron imaging, reactor kinetics, neutron noise and Monte Carlo simulation at the CROCUS zero-power reactor.">
-<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div class="wrap">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Michel Saliba</title>
+        <meta
+            name="description"
+            content="Michel Saliba, PhD candidate in Nuclear Engineering at EPFL. Neutron imaging, reactor kinetics, neutron noise and Monte Carlo simulation at the CROCUS zero-power reactor."
+        />
+        <script>
+            try {
+                var t = localStorage.getItem("theme");
+                if (t) document.documentElement.setAttribute("data-theme", t);
+            } catch (e) {}
+        </script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap"
+        />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="top">
+                <nav>
+                    <a href="./" aria-current="page">About</a>
+                    <a href="publications.html">Publications</a>
+                    <a href="Cv.pdf">CV</a>
+                </nav>
+                <button class="theme-toggle" type="button">
+                    <svg viewBox="0 0 16 16" aria-hidden="true">
+                        <circle
+                            cx="8"
+                            cy="8"
+                            r="6.5"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.2"
+                        />
+                        <path
+                            d="M8 1.5a6.5 6.5 0 0 1 0 13z"
+                            fill="currentColor"
+                        />
+                    </svg>
+                    <span>dark</span>
+                </button>
+            </div>
 
-  <div class="top">
-    <nav>
-      <a href="./" aria-current="page">About</a>
-      <a href="publications.html">Publications</a>
-      <a href="cv.pdf">CV</a>
-    </nav>
-    <button class="theme-toggle" type="button">
-      <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg>
-      <span>dark</span>
-    </button>
-  </div>
+            <header>
+                <h1>Michel Saliba</h1>
+                <p class="role">
+                    PhD Candidate in Nuclear Engineering, École Polytechnique
+                    Fédérale de Lausanne
+                </p>
+                <div class="links">
+                    <a href="mailto:michelsaliba58@gmail.com"
+                        >michelsaliba58@gmail.com</a
+                    >
+                    <a
+                        href="https://scholar.google.com/citations?user=hV7AHzoAAAAJ&amp;hl=en"
+                        >Google Scholar</a
+                    >
+                    <a href="https://www.linkedin.com/in/m-saliba/">LinkedIn</a>
+                    <a href="Cv.pdf">CV (PDF)</a>
+                </div>
+                <p class="bio">
+                    I am designing, building and commissioning a new neutron
+                    imaging station at CROCUS, the zero-power research reactor
+                    at EPFL. My work covers reactor kinetics, neutron noise
+                    analysis, Monte Carlo transport in OpenMC, and gamma
+                    spectroscopy. I am a licensed research reactor operator and
+                    a certified radiation protection expert.
+                </p>
+            </header>
 
-  <header>
-    <h1>Michel Saliba</h1>
-    <p class="role">PhD Candidate in Nuclear Engineering, École Polytechnique Fédérale de Lausanne</p>
-    <div class="links">
-      <a href="mailto:michelsaliba58@gmail.com">michelsaliba58@gmail.com</a>
-      <a href="https://scholar.google.com/citations?user=hV7AHzoAAAAJ&amp;hl=en">Google Scholar</a>
-      <a href="https://www.linkedin.com/in/m-saliba/">LinkedIn</a>
-      <a href="cv.pdf">CV (PDF)</a>
-    </div>
-    <p class="bio">
-      I am designing, building and commissioning a new neutron imaging station at CROCUS,
-      the zero-power research reactor at EPFL. My work covers reactor kinetics, neutron noise
-      analysis, Monte Carlo transport in OpenMC, and gamma spectroscopy. I am a licensed
-      research reactor operator and a certified radiation protection expert.
-    </p>
-  </header>
+            <h2>Research</h2>
+            <dl class="research">
+                <dt>Neutron imaging</dt>
+                <dd>
+                    Design, simulation and first experiments of a neutron
+                    imaging station at the CROCUS reactor.
+                </dd>
+                <dt>Reactor kinetics</dt>
+                <dd>
+                    Measuring the prompt neutron decay constant with SAFFRON, a
+                    150-detector 3D array in the core.
+                </dd>
+                <dt>Monte Carlo development</dt>
+                <dd>
+                    A collision-tracking feature in OpenMC for neutron noise,
+                    spectroscopy, time-of-flight and scatter cameras.
+                </dd>
+                <dt>Xenon-135 observation</dt>
+                <dd>
+                    Gamma-ray spectroscopy to follow xenon-135 poisoning
+                    directly after reactor shutdown.
+                </dd>
+            </dl>
 
-  <h2>Research</h2>
-  <dl class="research">
-    <dt>Neutron imaging</dt>
-    <dd>Design, simulation and first experiments of a neutron imaging station at the CROCUS reactor.</dd>
-    <dt>Reactor kinetics</dt>
-    <dd>Measuring the prompt neutron decay constant with SAFFRON, a 150-detector 3D array in the core.</dd>
-    <dt>Monte Carlo development</dt>
-    <dd>A collision-tracking feature in OpenMC for neutron noise, spectroscopy, time-of-flight and scatter cameras.</dd>
-    <dt>Xenon-135 observation</dt>
-    <dd>Gamma-ray spectroscopy to follow xenon-135 poisoning directly after reactor shutdown.</dd>
-  </dl>
+            <h2>Selected publications</h2>
+            <ol class="pubs" data-pubs="selected"></ol>
+            <p class="more">
+                <a href="publications.html">All publications →</a>
+            </p>
 
-  <h2>Selected publications</h2>
-  <ol class="pubs" data-pubs="selected"></ol>
-  <p class="more"><a href="publications.html">All publications →</a></p>
+            <h2>Education</h2>
+            <div class="entries">
+                <div class="entry">
+                    <span><b>PhD, Nuclear Engineering</b>, EPFL, Lausanne</span>
+                    <span class="when">2023 – present</span>
+                    <span class="what"
+                        >Neutron imaging station at the CROCUS zero-power
+                        reactor</span
+                    >
+                </div>
+                <div class="entry">
+                    <span
+                        ><b>MSc, Nuclear Engineering</b>, EPFL &amp; ETH
+                        Zürich</span
+                    >
+                    <span class="when">2021 – 2023</span>
+                    <span class="what"
+                        >Thesis: Temporal and spatial correlation in the CROCUS
+                        reactor with the SAFFRON 3D detector array</span
+                    >
+                </div>
+                <div class="entry">
+                    <span
+                        ><b>BSc, Physics</b>, Université Saint-Joseph,
+                        Beirut</span
+                    >
+                    <span class="when">2019 – 2021</span>
+                    <span class="what">Ranked first in class</span>
+                </div>
+                <div class="entry">
+                    <span
+                        ><b>Mechanical Engineering</b> (three years), Lebanese
+                        University, Beirut</span
+                    >
+                    <span class="when">2017 – 2021</span>
+                </div>
+            </div>
 
-  <h2>Education</h2>
-  <div class="entries">
-    <div class="entry">
-      <span><b>PhD, Nuclear Engineering</b>, EPFL, Lausanne</span>
-      <span class="when">2023 – present</span>
-      <span class="what">Neutron imaging station at the CROCUS zero-power reactor</span>
-    </div>
-    <div class="entry">
-      <span><b>MSc, Nuclear Engineering</b>, EPFL &amp; ETH Zürich</span>
-      <span class="when">2021 – 2023</span>
-      <span class="what">Thesis: Temporal and spatial correlation in the CROCUS reactor with the SAFFRON 3D detector array</span>
-    </div>
-    <div class="entry">
-      <span><b>BSc, Physics</b>, Université Saint-Joseph, Beirut</span>
-      <span class="when">2019 – 2021</span>
-      <span class="what">Ranked first in class</span>
-    </div>
-    <div class="entry">
-      <span><b>Mechanical Engineering</b> (three years), Lebanese University, Beirut</span>
-      <span class="when">2017 – 2021</span>
-    </div>
-  </div>
+            <h2>Experience</h2>
+            <div class="entries">
+                <div class="entry">
+                    <span
+                        ><b>Simulation Engineer</b>, Kernkraftwerk Gösgen</span
+                    >
+                    <span class="when">2022</span>
+                    <span class="what"
+                        >Simulation of fuel-assembly irradiation cycles to
+                        compute decay heat, in C#</span
+                    >
+                </div>
+                <div class="entry">
+                    <span><b>Research Intern</b>, Nagra</span>
+                    <span class="when">2022</span>
+                    <span class="what"
+                        >Reverse Monte Carlo optimisation; activation profiles
+                        of control rods</span
+                    >
+                </div>
+                <div class="entry">
+                    <span><b>Intern</b>, Mount-Lebanon Hospital</span>
+                    <span class="when">2020</span>
+                    <span class="what"
+                        >Application for shielding-wall thickness around LINAC
+                        rooms</span
+                    >
+                </div>
+            </div>
 
-  <h2>Experience</h2>
-  <div class="entries">
-    <div class="entry">
-      <span><b>Simulation Engineer</b>, Kernkraftwerk Gösgen</span>
-      <span class="when">2022</span>
-      <span class="what">Simulation of fuel-assembly irradiation cycles to compute decay heat, in C#</span>
-    </div>
-    <div class="entry">
-      <span><b>Research Intern</b>, Nagra</span>
-      <span class="when">2022</span>
-      <span class="what">Reverse Monte Carlo optimisation; activation profiles of control rods</span>
-    </div>
-    <div class="entry">
-      <span><b>Intern</b>, Mount-Lebanon Hospital</span>
-      <span class="when">2020</span>
-      <span class="what">Application for shielding-wall thickness around LINAC rooms</span>
-    </div>
-  </div>
+            <h2>Honours</h2>
+            <div class="entries">
+                <div class="entry">
+                    <span
+                        ><b>Best Student Paper, 1st Prize</b>, PHYSOR 2024, San
+                        Francisco</span
+                    >
+                    <span class="when">2024</span>
+                </div>
+                <div class="entry">
+                    <span
+                        ><b>Dean’s Award for Excellence in Teaching</b>,
+                        EPFL</span
+                    >
+                    <span class="when">2023 – 24</span>
+                </div>
+            </div>
 
-  <h2>Honours</h2>
-  <div class="entries">
-    <div class="entry">
-      <span><b>Best Student Paper, 1st Prize</b>, PHYSOR 2024, San Francisco</span>
-      <span class="when">2024</span>
-    </div>
-    <div class="entry">
-      <span><b>Dean’s Award for Excellence in Teaching</b>, EPFL</span>
-      <span class="when">2023 – 24</span>
-    </div>
-  </div>
+            <h2>Skills</h2>
+            <dl class="skills">
+                <dt>Programming</dt>
+                <dd>C, C++, C#, Python, Matlab, Linux</dd>
+                <dt>Simulation</dt>
+                <dd>OpenMC, MCNP and other Monte Carlo transport codes</dd>
+                <dt>Experimental</dt>
+                <dd>
+                    Neutron imaging, gamma spectroscopy, dosimetry, neutron
+                    noise, scatter cameras
+                </dd>
+                <dt>Certifications</dt>
+                <dd>
+                    Licensed research reactor operator; I1 radiation protection
+                    expert (FOPH)
+                </dd>
+                <dt>Languages</dt>
+                <dd>Arabic (native), English, French, German (basic)</dd>
+            </dl>
 
-  <h2>Skills</h2>
-  <dl class="skills">
-    <dt>Programming</dt><dd>C, C++, C#, Python, Matlab, Linux</dd>
-    <dt>Simulation</dt><dd>OpenMC, MCNP and other Monte Carlo transport codes</dd>
-    <dt>Experimental</dt><dd>Neutron imaging, gamma spectroscopy, dosimetry, neutron noise, scatter cameras</dd>
-    <dt>Certifications</dt><dd>Licensed research reactor operator; I1 radiation protection expert (FOPH)</dd>
-    <dt>Languages</dt><dd>Arabic (native), English, French, German (basic)</dd>
-  </dl>
-
-  <footer>
-    <span>Michel Saliba · Lausanne, Switzerland</span>
-    <span>Updated October 2026</span>
-  </footer>
-
-</div>
-<script src="publications.js"></script>
-<script src="site.js"></script>
-</body>
+            <footer>
+                <span>Michel Saliba · Lausanne, Switzerland</span>
+                <span>Updated October 2026</span>
+            </footer>
+        </div>
+        <script src="publications.js"></script>
+        <script src="site.js"></script>
+    </body>
 </html>
